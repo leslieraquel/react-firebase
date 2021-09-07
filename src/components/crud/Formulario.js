@@ -23,7 +23,7 @@ export default class Formulario extends Component{
     handleSubmit = async e => {
         e.preventDefault();
 
-        console.log("test")
+        console.log(this.state )
         try{
             // const URL = 'https:url/firease.json'
             // const res = await axios.post(URL, this.state);
