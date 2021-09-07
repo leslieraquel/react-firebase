@@ -13,39 +13,49 @@ export default class Formulario extends Component{
         email:""
     }
     
-   // const [datos,setDatos] =useState({
-        //nombre: " ",
-        //apellido:""
-
-   // })
-    handleChange = e =>{
-        const target= e.target
-        //const id  = target.id
-        const name = target.name
-        const value = target.value
-        console.log(value,name)
+    handleChange = e => {
+        const target = e.target;
+        const name = target.name;
+        const value = target.value;
+        this.setState({ [name]: value });
     }
-    handleSubmit = async e =>{
-        console.log(e)
 
-    }
+    handleSubmit = async e => {
+        e.preventDefault();
+
+        console.log("test")
+        try{
+            // const URL = 'https:url/firease.json'
+            // const res = await axios.post(URL, this.state);
+            // this.props.onSuccess(res);
+        }catch(err){
+            // console.error(err); //logger...
+            // this.setState({hasError: true})
+        }
+         
+
+    } 
+
 
     render(){
-   // const {id,nombre,cedula,telefono,email} = this.state
+   const {id,nombre,cedula,telefono,email} = this.state
     return(
         <>
         <h1>Formulario</h1>
                 <form className="row" onSubmit={this.handleSubmit}>
                      <div className="col-sm-4"> 
                         <div className="card"> 
-                            <Input placeholder="ID" type="text" label="ID" id="id" value={this.state.id} onChange={(e)=> this.handleChange(e)} name="id"/>
-                            <Input placeholder="nombre" type="text" label="Nombre" id="nombre" value={this.state.nombre} onChange={this.handleChange} name="nombre"/>
-                            <Input placeholder="Cedula" type="text" label="Cedula" id="cedula" value={this.state.cedula} onChange={this.handleChange} name="cedula"/>
-                            <Input placeholder="Telefono" type="text" label="Telefono" id="telefono" value={this.state.telefono} onChange={this.handleChange} name="telefono"/>
-                            <Input placeholder="Email" type="email" label="Email" id="email" value={this.state.email} onChange={this.handleChange} name="email"/>
+                            <Input placeholder="ID"         type="text" label="ID"      id="id"         value={id}       onChange={this.handleChange} name="id"></Input>
+                            <Input placeholder="nombre"     type="text" label="Nombre"  id="nombre"     value={nombre}   onChange={this.handleChange} name="nombre"></Input>
+                            <Input placeholder="Cedula"     type="text" label="Cedula"  id="cedula"     value={cedula}   onChange={this.handleChange} name="cedula"></Input>
+                            <Input placeholder="Telefono"   type="text" label="Telefono"id="telefono"   value={telefono} onChange={this.handleChange} name="telefono"></Input>
+                            <Input placeholder="Email"      type="email"label="Email"   id="email"      value={email}    onChange={this.handleChange} name="email"></Input>
                         </div>  
-                    </div>           
+                    </div>
+                    
+                    <button type="submit">Go</button>   
                 </form>
+
                     <table className="table">
                         <thead>
                             <tr>

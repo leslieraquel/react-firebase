@@ -11,13 +11,10 @@ export default function Input(props){
                        type={type}
                        placeholder={placeholder}
                        id={id}
-                       value={value}
+                       defaultValue={value}        
                        name={name}
                 ></input>
-            </div>
-
-
-            
+            </div>           
            
 
         </>
